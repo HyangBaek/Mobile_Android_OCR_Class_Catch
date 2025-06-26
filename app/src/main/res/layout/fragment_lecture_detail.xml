@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- 상단 Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Nviation"
+        android:titleTextColor="@android:color/black"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 과목명 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/subjectLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:hint="과목명"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 강의실 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/roomLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/subjectLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="강의실"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 요일 선택 -->
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/daySelector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:singleSelection="false"
+        app:layout_constraintTop_toBottomOf="@id/roomLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMon"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mon" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTue"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tue" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWed"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Wed" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnThu"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thu" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFri"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fri" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSat"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sat" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSun"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sun" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <!-- 시작/종료 시간 (간단하게 NumberPicker 대체용) -->
+    <!-- 시간 선택 버튼 + 텍스트 표시 -->
+    <LinearLayout
+        android:id="@+id/timeSelection1Layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/daySelector"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:id="@+id/btnStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="시작 시간" />
+        <TextView
+            android:text="          "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp" />
+        <TextView
+            android:id="@+id/btnEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="종료 시간" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/timeSelectionLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/timeSelection1Layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <Button
+            android:id="@+id/textStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="09:00" />
+        <TextView
+            android:text=" ~ "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp" />
+        <Button
+            android:id="@+id/textEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="10:00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/alarmToggleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/timeSelectionLayout">
+
+        <Button
+            android:id="@+id/btnAlarmSetting"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="알람 설정"
+            android:textSize="16sp"
+            android:layout_marginEnd="8dp" />
+
+        <Switch
+            android:id="@+id/switchAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- 수정 / 삭제 / 공유 버튼 -->
+    <LinearLayout
+        android:id="@+id/actionButtons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/alarmToggleLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:layout_weight="1"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Share"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <!-- Save 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUpdate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/actionButtons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Canele 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAlarm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Canele"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btnUpdate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

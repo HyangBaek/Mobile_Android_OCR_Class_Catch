@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">OcrClassCatchProject</string>
+    <string-array name="alarm_offset_options">
+        <item>5분 전</item>
+        <item>10분 전</item>
+        <item>15분 전</item>
+        <item>20분 전</item>
+        <item>30분 전</item>
+        <item>1시간 전</item>
+    </string-array>
+
+</resources>

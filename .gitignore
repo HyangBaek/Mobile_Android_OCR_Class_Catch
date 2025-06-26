@@ -1,0 +1,29 @@
+# Android Studio
+.idea/
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+*.iml
+.DS_Store
+
+# Build files
+/build/
+*/build/
+/captures
+.externalNativeBuild
+.cxx
+
+# Gradle
+.gradle/
+/local.properties
+
+# Logs and temp
+*.log
+*.tmp
+
+# Keystore files
+*.jks
+*.keystore

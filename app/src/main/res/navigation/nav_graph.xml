@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ocrFragment">
+
+    <fragment
+        android:name="com.example.ocrclasscatchproject.presentation.ocr.OcrFragment"
+        android:id="@+id/ocrFragment"
+        android:label="OCR">
+        <action
+            android:id="@+id/action_ocrFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.example.ocrclasscatchproject.presentation.schedule.ScheduleFragment"
+        android:label="Schedule" />
+</navigation>

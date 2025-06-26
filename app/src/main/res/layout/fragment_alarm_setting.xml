@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        app:title="알람 설정"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 요일 선택 -->
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/dayToggleGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:singleSelection="false"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggleMon"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.14"
+            android:minWidth="0dp"
+            android:ellipsize="none"
+            android:maxLines="1"
+            android:checked="false"
+            android:text="월" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggleTue"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.14"
+            android:minWidth="0dp"
+            android:ellipsize="none"
+            android:maxLines="1"
+            android:checked="false"
+            android:text="화" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggleWed"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.14"
+            android:minWidth="0dp"
+            android:ellipsize="none"
+            android:maxLines="1"
+            android:text="수" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggleThu"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.14"
+            android:minWidth="0dp"
+            android:ellipsize="none"
+            android:maxLines="1"
+            android:checked="false"
+            android:text="목" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggleFri"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.14"
+            android:minWidth="0dp"
+            android:ellipsize="none"
+            android:maxLines="1"
+            android:checked="false"
+            android:text="금" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggleSat"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.14"
+            android:minWidth="0dp"
+            android:ellipsize="none"
+            android:maxLines="1"
+            android:checked="false"
+            android:text="토" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggleSun"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.14"
+            android:minWidth="0dp"
+            android:ellipsize="none"
+            android:maxLines="1"
+            android:checked="false"
+            android:text="일" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <!-- 알람 활성화 스위치 -->
+    <Switch
+        android:id="@+id/switchEnableAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람 활성화"
+        android:checked="true"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/dayToggleGroup"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- 시간 선택 -->
+    <Button
+        android:id="@+id/textAlarmTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="시간 선택"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/switchEnableAlarm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 알람 간격 선택 -->
+    <TextView
+        android:id="@+id/textAlarmOffsetLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="언제 알람을 울릴까요?"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnSelectTime"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/alarmOffsetRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/textAlarmOffsetLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="➕ 커스텀 시간 추가"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/alarmOffsetRecyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 선택된 시간 표시 -->
+    <TextView
+        android:id="@+id/btnSelectTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선택된 시간: 없음"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/textAlarmTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 저장/취소 버튼 Row -->
+    <LinearLayout
+        android:id="@+id/buttonRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnSetAlarm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="저장"/>
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="취소"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
